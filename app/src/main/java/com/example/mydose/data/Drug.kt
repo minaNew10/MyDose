@@ -1,14 +1,18 @@
 package com.example.mydose.data
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.util.*
-
+@Entity(tableName = "drug_table")
 data class Drug(
-    var id: Long = 0L,
+    @PrimaryKey(autoGenerate = true)
+    var drugId: Long = 0L,
     var name: String = "",
-    var startTime: Date? = null,
+    var firstDoseDate: Long? = null,
+    var firstDoseTime: Long? = null,
     var period : Long? = null,
-    var endTime: Date? = null,
-    var intervals : Long,
+    var noOfDoses : Int = 0,
+    var intervals : Long? = null,
     var completed :Boolean = false,
     var doctor: String = ""
 )
